@@ -1,0 +1,14 @@
+name: Deploy the backend to server
+on: 
+  push:
+    branches: [main]
+
+jobs:
+  redeploy_everything:
+    runs-on: ubuntu-latest
+    name: Deploying everything to deployment
+    steps:
+      # - name: SSH Into server
+      - run: |
+        
+          

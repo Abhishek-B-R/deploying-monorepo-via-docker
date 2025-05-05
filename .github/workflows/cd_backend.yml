@@ -33,7 +33,8 @@ jobs:
             key: ${{secrets.SSH_PRIVATE_KEY}}
             port: 22
             script: |
-                docker run abhibr/monorepo-docker-deployment-backend:${{github.sha}}
+                sudo docker stop monorepo-backend
+                sudo docker run -t monorepo-backend -d -p 8080:8080 abhibr/monorepo-docker-deployment-backend:${{github.sha}}
 
 
           

@@ -37,6 +37,4 @@ jobs:
                 sudo docker stop monorepo-backend || true
                 sudo docker rm monorepo-backend || true
                 sudo docker run --name monorepo-backend -d -p 8080:8080 abhibr/monorepo-docker-deployment-backend:${{github.sha}}
-
-
-          
+                sudo docker image prune -a -f

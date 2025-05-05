@@ -36,5 +36,5 @@ jobs:
                 sudo docker pull abhibr/monorepo-docker-deployment-frontend:${{github.sha}}
                 sudo docker stop monorepo-frontend || true
                 sudo docker rm monorepo-frontend || true
-                sudo docker run --name monorepo-frontend -d -p 3000:3000 abhibr/monorepo-docker-deployment-frontend:${{github.sha}}
+                sudo docker run --name monorepo-frontend --build-arg DATABASE_URL=${{secrets.DATABASE_URL}} -d -p 3000:3000 abhibr/monorepo-docker-deployment-frontend:${{github.sha}}
                 sudo docker image prune -a -f
